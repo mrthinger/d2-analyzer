@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "d2-analyzer"
+version = "0.1.0"
+description = ""
+authors = ["Evan Pierce"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.31.0"
+tenacity = "^8.2.3"
+open-dota-api-client = {path = "open-dota-api-client"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^5.2"
+openapi-python-client = "^0.15.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+gen_opendota_client = "openapi-python-client generate --url https://api.opendota.com/api"
+# test         = "pytest --cov=my_app"                         # a simple command task
+# serve.script = "my_app.service:run(debug=True)"              # python script based task
+# tunnel.shell = "ssh -N -L 0.0.0.0:8080:$PROD:8080 $PROD &"   # (posix) shell based task
